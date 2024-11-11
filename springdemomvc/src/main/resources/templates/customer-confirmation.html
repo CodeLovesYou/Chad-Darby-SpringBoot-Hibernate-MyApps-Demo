@@ -6,6 +6,12 @@
 		
 	</head>
 	<body>
-		The Customer is Confirmed: <span th:text="${customer.firstName + ' '+customer.lastName}"/>
+		The Customer is Confirmed: <span th:text="${customer.firstName + ' '+customer.lastName}"></span>
+		<br>
+		Free Passes: <span th:text="${customer.freePasses}"></span>
+		<br>
+		Postal Code: <span th:text="${customer.postalCode}"></span>
+		<br><hr>
+		<a th:href="@{/}">Student Form</a>
 	</body>
 </html>
