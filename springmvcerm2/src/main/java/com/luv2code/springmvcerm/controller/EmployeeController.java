@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.luv2code.springmvcerm.entity.Employee;
 import com.luv2code.springmvcerm.service.EmployeeService;
@@ -51,6 +52,17 @@ public class EmployeeController {
     		@ModelAttribute("employee") Employee theEmployee) {
     	employeeService.save(theEmployee);
     	return "redirect:/employees/list";
+    }
+    
+    @GetMapping("/showFormForUpdate")
+    public String showFormForUpdate(@RequestParam("employeeId") int id,
+    			Model theModel) {
+    	
+    	Employee theEmployee = employeeService.findById(id);
+    	
+    	theModel.addAttribute("employee", theEmployee);
+    	
+    	return "employees/employee-form";
     }
 }
 
