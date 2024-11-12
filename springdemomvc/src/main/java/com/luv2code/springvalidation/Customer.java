@@ -1,5 +1,7 @@
 package com.luv2code.springvalidation;
 
+import com.luv2code.springvalidation.validation.CourseCode;
+
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -21,11 +23,30 @@ public class Customer {
 	
 	@Pattern(regexp="^[a-zA-Z0-9]{5}", message="only 5 chars/digits required")
 	private String postalCode;
+
+	@CourseCode(value="DEVA",message="must start with DEVA")
+	private String courseCode;
 	
+	
+	
+	public String getCourseCode() {
+		return courseCode;
+	}
+
+
+
+	public void setCourseCode(String courseCode) {
+		this.courseCode = courseCode;
+	}
+
+
+
 	public String getFirstName() {
 		return firstName;
 	}
 
+	
+	
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
