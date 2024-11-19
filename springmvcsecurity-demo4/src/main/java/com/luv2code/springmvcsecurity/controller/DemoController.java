@@ -20,12 +20,5 @@ public class DemoController {
 	public String showSystems() {
 		return "systems";
 	}
-	
-	@GetMapping("/showMyLoginPage")
-	public String showMyLoginPage() {
-		
-		return "plain-login";
-		//return "fancy-login";
-	}
 
 }
