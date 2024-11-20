@@ -1,0 +1,27 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+				xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	<body>
+	
+		<h3>Welcome to StratCoder Home Page</h3>
+		<hr>
+		<div>
+			User: <span sec:authentication="principal.username"></span>
+			Role(s): <span sec:authentication="principal.authorities"></span>
+		</div>
+		<div sec:authorize="hasRole('MANAGER')">
+			<p>
+				<a th:href="@{/leaders}">Leaders</a>
+				(Only for manager peeps)
+			</p>		
+		</div>
+		<div sec:authorize="hasRole('ADMIN')">
+			<p>
+				<a th:href="@{/systems}">Systems</a>
+				(Only for admin peeps)
+			</p>
+		</div>
+		<form action="#" th:action="@{/logout}" method="post">
+			<input type="submit" value="Logout"/>
+		</form>
+	</body>
+</html>
